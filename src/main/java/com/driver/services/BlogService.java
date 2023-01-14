@@ -73,7 +73,16 @@ public class BlogService {
 
             //add an image to the blog after creating it
             Blog blog = blogRepository1.findById(blogId).get();
-            Image m1 = imageService1.createAndReturn(blog,description,dimensions);
+
+            Image image = new Image(description,dimensions);
+
+            image.setBlog(blog);
+
+            List<Image> imageList = blog.getImageList();
+            imageList.add(image);
+            blog.setImageList(imageList);
+
+            blogRepository1.save(blog);
 
         }
         catch(Exception e){}

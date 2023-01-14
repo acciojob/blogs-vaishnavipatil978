@@ -93,4 +93,20 @@ public class Blog {
         this.title = title;
         this.content = content;
     }
+
+    public Blog(int id, String title, String content, Date pubDate, User user, List<Image> imageList) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.pubDate = pubDate;
+        this.user = user;
+        this.imageList = imageList;
+    }
+
+    public Blog(int id, String title, String content, List<Image> imageList) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.imageList = imageList;
+    }
 }
