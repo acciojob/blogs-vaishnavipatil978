@@ -70,19 +70,10 @@ public class BlogService {
 
     public void addImage(Integer blogId, String description, String dimensions){
         try{
-
             //add an image to the blog after creating it
             Blog blog = blogRepository1.findById(blogId).get();
 
-            Image image = new Image(description,dimensions);
-
-            image.setBlog(blog);
-
-            List<Image> imageList = blog.getImageList();
-            imageList.add(image);
-            blog.setImageList(imageList);
-
-            blogRepository1.save(blog);
+            Image image = imageService1.createAndReturn(blog,description,dimensions);
 
         }
         catch(Exception e){}

@@ -20,10 +20,11 @@ public class ImageService {
         //create an image based on given parameters and add it to the imageList of given blog
 
         try {
-            int blogId = blog.getId();
-            blog = blogRepository2.findById(blogId).get();
+//            int blogId = blog.getId();
+//            blog = blogRepository2.findById(blogId).get();
 
             Image image = new Image(description,dimensions);
+
             image.setBlog(blog);
 
             List<Image> imageList = blog.getImageList();
@@ -32,12 +33,14 @@ public class ImageService {
             blog.setImageList(imageList);
 
             blogRepository2.save(blog);
+//
+//            blog = blogRepository2.findById(blog.getId()).get();
+//            imageList=blog.getImageList();
+//            int size = imageList.size();
+//
+//            return imageList.get(size-1);
 
-            blog = blogRepository2.findById(blogId).get();
-            imageList=blog.getImageList();
-            int size = imageList.size();
-
-            return imageList.get(size-1);
+            return image;
         }
         catch (Exception e){
             return null;
