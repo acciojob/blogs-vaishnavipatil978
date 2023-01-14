@@ -28,7 +28,7 @@ public class ImageService {
             image.setBlog(blog);
 
             List<Image> imageList = blog.getImageList();
-            if(imageList==null) new ArrayList<>();
+            if(imageList==null) imageList=new ArrayList<>();
             imageList.add(image);
             blog.setImageList(imageList);
 
