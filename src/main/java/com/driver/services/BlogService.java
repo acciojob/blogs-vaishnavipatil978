@@ -75,6 +75,15 @@ public class BlogService {
 
             Image image = imageService1.createAndReturn(blog,description,dimensions);
 
+            image.setBlog(blog);
+
+            List<Image> imageList = blog.getImageList();
+            if(imageList==null) imageList=new ArrayList<>();
+            imageList.add(image);
+            blog.setImageList(imageList);
+
+            blogRepository1.save(blog);
+
         }
         catch(Exception e){}
 
