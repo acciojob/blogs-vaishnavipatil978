@@ -72,7 +72,7 @@ public class BlogService {
         try{
 
             //add an image to the blog after creating it
-            Blog blog = findBlogById(blogId);
+            Blog blog = blogRepository1.findById(blogId).get();
             Image m1 = imageService1.createAndReturn(blog,description,dimensions);
 
         }
