@@ -15,7 +15,7 @@ public class ImageService {
     @Autowired
     private BlogRepository blogRepository2;
 
-    public ImageResponseDto createAndReturn(Blog blog, String description, String dimensions){
+    public Image createAndReturn(Blog blog, String description, String dimensions){
         //create an image based on given parameters and add it to the imageList of given blog
 
             Image image = new Image(description,dimensions,blog);
@@ -30,11 +30,7 @@ public class ImageService {
             imageList= blog.getImageList();
             int size = imageList.size();
 
-            image= imageList.get(size-1);
-
-            ImageResponseDto imageResponseDto = new ImageResponseDto(image.getId(),image.getDescription(), image.getDimensions());
-            return imageResponseDto;
-
+            return imageList.get(size-1);
     }
 
     public void deleteImage(Image image){

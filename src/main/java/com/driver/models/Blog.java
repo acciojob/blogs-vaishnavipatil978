@@ -20,6 +20,10 @@ public class Blog {
 
     String content;
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @CreationTimestamp
     Date pubDate;
 

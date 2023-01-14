@@ -2,7 +2,6 @@ package com.driver.controller;
 
 import com.driver.models.Blog;
 import com.driver.models.Image;
-import com.driver.models.ImageResponseDto;
 import com.driver.services.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,11 +16,11 @@ public class ImageController {
     ImageService imageService;
 
     @PostMapping("/create")
-    public ResponseEntity<ImageResponseDto> createAndReturn(@RequestBody Blog blog,
+    public ResponseEntity<Image> createAndReturn(@RequestBody Blog blog,
                                                  @RequestParam String description,
                                                  @RequestParam String dimensions) {
 
-        ImageResponseDto image = imageService.createAndReturn(blog, description, dimensions);
+        Image image = imageService.createAndReturn(blog, description, dimensions);
         return new ResponseEntity<>(image, HttpStatus.CREATED);
     }
 

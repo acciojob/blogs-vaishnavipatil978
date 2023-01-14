@@ -16,6 +16,10 @@ public class User {
 
     String password;
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     String firstName;
 
     String lastName;

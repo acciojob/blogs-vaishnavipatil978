@@ -14,6 +14,10 @@ public class Image {
 
     String dimensions;
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @ManyToOne
     @JoinColumn
     Blog blog;
