@@ -1,5 +1,6 @@
 package com.driver.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -15,7 +16,6 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @Column(unique = true,nullable = false)
     String title;
 
     String content;
@@ -29,9 +29,11 @@ public class Blog {
 
     @ManyToOne
     @JoinColumn
+    @JsonIgnoreProperties("blogList")
     User user;
 
     @OneToMany(mappedBy = "blog", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("blog")
     List<Image> imageList;
 
     public Blog() {

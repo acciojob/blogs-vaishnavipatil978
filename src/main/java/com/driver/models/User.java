@@ -1,5 +1,7 @@
 package com.driver.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,7 +13,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @Column(name = "username",unique = true,nullable = false)
     String username;
 
     String password;
@@ -25,6 +26,7 @@ public class User {
     String lastName;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("user")
     List<Blog> blogList;
 
     public User(String username, String password, String firstName, String lastName) {

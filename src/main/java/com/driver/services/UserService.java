@@ -17,18 +17,34 @@ public class UserService {
     BlogService blogService3;
 
     public void createUser(User user){
-        userRepository3.save(user);
+        try{
+            userRepository3.save(user);
+        }
+        catch (Exception e){}
+
     }
 
     public void deleteUser(int userId){
-        userRepository3.deleteById(userId);
+        try{
+            userRepository3.deleteById(userId);
+        }
+        catch (Exception e){}
     }
 
     public void updateUser(User user){
-        if(userRepository3.existsById(user.getId())) userRepository3.save(user);
+        try{
+            userRepository3.save(user);
+        }
+        catch (Exception e){}
+
     }
 
     public User findUserByUsername(String username){
-        return userRepository3.findByUsername(username);
+
+        try{
+            return userRepository3.findByUsername(username);
+        }
+        catch (Exception e){ return null;}
+
     }
 }
