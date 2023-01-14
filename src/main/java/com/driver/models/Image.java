@@ -10,6 +10,7 @@ public class Image {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
+    @Column(unique = true)
     String description;
 
     String dimensions;
